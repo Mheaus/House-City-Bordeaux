@@ -6,13 +6,15 @@
 
     <title>House City Bordeaux</title>
     <link rel="shortcut icon" href=<%= image_url "favicon.png" %> type="image/x-icon">
-
     <%= csrf_meta_tags %>
-
+    <%= yield(:metahead) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/84dbc16103.js"></script>
   </head>
   <body>
     <%= yield %>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <%= yield(:after_js) %>
   </body>
 </html>
