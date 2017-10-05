@@ -2,7 +2,7 @@
 <header class="masthead">
   <div class="header-content">
     <div class="header-content-inner">
-      <h1 id="homeHeading">House City Bordeaux</h1>
+      <h1 id="homeHeading">35 Cours du Médoc</h1>
       <hr>
       <p>The best place to stay in Bordeaux</p>
       <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
@@ -21,10 +21,6 @@
     </div>
   </div>
 </section>
-<% @flats.each do |flat| %>
-  <h1> <%= flat.name %></h1>
-  <p><%= flat.description %></p>
-<% end %>
 <section id="services">
   <div class="container">
     <div class="row">
@@ -67,7 +63,11 @@
     </div>
   </div>
 </section>
-<section class="p-0" id="portfolio">
+<% @flats.each do |flat| %>
+  <h1> <%= flat.name %></h1>
+  <p><%= flat.description %></p>
+<% end %>
+<section class="p-0" id="apartments">
   <div class="container-fluid">
     <div class="row no-gutter popup-gallery">
       <div class="col-lg-4 col-sm-6">

@@ -12,7 +12,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://use.fontawesome.com/84dbc16103.js"></script>
   </head>
-  <body>
+  <body <%= yield(:body_tag) %>>
     <%= yield %>
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <%= yield(:after_js) %>

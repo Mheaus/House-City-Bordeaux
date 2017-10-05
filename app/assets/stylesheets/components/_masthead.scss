@@ -5,7 +5,7 @@ header.masthead {
   min-height: auto;
   text-align: center;
   color: white;
-  background-image: url('../img/header.jpg');
+  background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.6) 0%, rgba(53, 53, 53,0.6) 50%), url(https://static.pexels.com/photos/364245/pexels-photo-364245.jpeg);
   background-position: center;
   @include background-cover;
   .header-content {
