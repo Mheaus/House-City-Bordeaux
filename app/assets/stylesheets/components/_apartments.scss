@@ -13,10 +13,14 @@
     h1, p {
       opacity: 0;
     }
+    p {
+      font-size: 18px;
+      padding-left: 50%;
+    }
   }
   &:hover {
     .apartment-box-content {
-      background-color: rgba(119, 119, 119, 0.6);
+      background-color: rgba(119, 119, 119, 0.7);
       h1, p {
         opacity: 1;
       }
