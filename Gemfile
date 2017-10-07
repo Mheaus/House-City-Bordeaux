@@ -58,3 +58,4 @@ gem 'magnific-popup-rails', '~> 1.1.0'
 gem 'jquery-easing-rails'
 gem "scrollreveal-rails"
 gem "figaro"
+gem "cloudinary"
