@@ -32,7 +32,7 @@ src="https://www.google.com/maps/embed/v1/place?q=42+rue+Binaud+Bordeaux&key=<%=
 <section class="p-0 mb-5" id="apartments">
   <div class="container-fluid">
     <% @flats.each do |flat| %>
-      <div class="row no-gutter apartment-box" style="background-image: url(<%= flat.background_url %>);">
+      <div class="row no-gutter apartment-box" style="background-image: url(<%= cl_image_path("6002bc6b_original_m7lit4") %>);">
         <div class="col-12">
           <%= link_to flat_path(flat), class: "apartment-box-content" do %>
             <h1><%= flat.name %></h1>
