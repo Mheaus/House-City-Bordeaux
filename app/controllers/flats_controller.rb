@@ -14,4 +14,10 @@ class FlatsController < ApplicationController
 
   def update
   end
+
+  private
+
+  def clean_params
+    params.require(:flat).permit(:name, :description, :address, photos: [])
+  end
 end

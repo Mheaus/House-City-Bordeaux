@@ -11,6 +11,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://use.fontawesome.com/84dbc16103.js"></script>
+    <%= cloudinary_js_config %>
   </head>
   <body <%= yield(:body_tag) %>>
     <%= yield %>
