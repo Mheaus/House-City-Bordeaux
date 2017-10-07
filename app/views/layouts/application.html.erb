@@ -8,12 +8,12 @@
     <link rel="shortcut icon" href=<%= image_url "favicon.png" %> type="image/x-icon">
     <%= csrf_meta_tags %>
     <%= yield(:metahead) %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://use.fontawesome.com/84dbc16103.js"></script>
     <%= cloudinary_js_config %>
   </head>
-  <body <%= yield(:body_tag) %>>
+  <body id="page-top" <%= yield(:body_tag) %>>
     <%= yield %>
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <%= yield(:after_js) %>
