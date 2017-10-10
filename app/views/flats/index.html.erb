@@ -1,6 +1,6 @@
 <%= render "navbar-index" %>
 
-<header class="masthead">
+<header class="masthead" style="background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.6) 0%, rgba(53, 53, 53,0.6) 50%), url(<%= image_url "outdoor#{rand(1..9)}" %>);">
   <div class="header-content">
     <div class="header-content-inner">
       <h1 id="homeHeading">42 rue Binaud, Chartrons</h1>
@@ -11,38 +11,14 @@
   </div>
 </header>
 
-<section class="bg-primary" id="about">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto text-center">
-        <h2 class="section-heading text-white">We've got what you need!</h2>
-        <hr class="light">
-        <p class="text-faded">We're taking care of everything during your journey in Bordeaux. The only thing you need to think is what are you going to do and when in one of the most beautifull city of France.</p>
-        <a class="btn btn-default btn-xl js-scroll-trigger" href="#services">See Our Services</a>
-      </div>
-    </div>
-  </div>
-</section>
+<%#= render "wgwyn-box-index" %>
 
-<iframe width="100%" height="450" frameborder="0" style="border:0"
+<iframe width="100%" alt="map" height="450" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/place?q=42+rue+Binaud+Bordeaux&key=<%= ENV['GOOGLE_MAPS_API_KEY']%>" allowfullscreen></iframe>
 
 <%= render "services-index" %>
 
-<section class="p-0 mb-5" id="apartments">
-  <div class="container-fluid">
-    <% @flats.each do |flat| %>
-      <div class="row no-gutter apartment-box" style="background-image: url(<%= cl_image_path("6002bc6b_original_m7lit4") %>);">
-        <div class="col-12">
-          <%= link_to flat_path(flat), class: "apartment-box-content" do %>
-            <h1><%= flat.name %></h1>
-            <p><%= flat.description %></p>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</section>
+<%= render "apartments-index" %>
 
 <%#= render "discover-index" %>
 
@@ -53,77 +29,77 @@ src="https://www.google.com/maps/embed/v1/place?q=42+rue+Binaud+Bordeaux&key=<%=
 <% end %>
 
 <%= content_for :after_js do %>
-<script>
-  (function($) {
-  "use strict"; // Start of use strict
+  <script>
+    (function($) {
+    "use strict"; // Start of use strict
 
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 48)
-        }, 1000, "easeInOutQuart");
-        return false;
+    // Smooth scrolling using jQuery easing
+    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: (target.offset().top - 48)
+          }, 1000, "easeInOutQuart");
+          return false;
+        }
       }
-    }
-  });
+    });
 
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  });
+    // Closes responsive menu when a scroll trigger link is clicked
+    $('.js-scroll-trigger').click(function() {
+      $('.navbar-collapse').collapse('hide');
+    });
 
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 48
-  });
+    // Activate scrollspy to add active class to navbar items on scroll
+    $('body').scrollspy({
+      target: '#mainNav',
+      offset: 48
+    });
 
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(function() {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-shrink");
-    } else {
-      $("#mainNav").removeClass("navbar-shrink");
-    }
-  });
+    // Collapse the navbar when page is scrolled
+    $(window).scroll(function() {
+      if ($("#mainNav").offset().top > 100) {
+        $("#mainNav").addClass("navbar-shrink");
+      } else {
+        $("#mainNav").removeClass("navbar-shrink");
+      }
+    });
 
-  // Scroll reveal calls
-  window.sr = ScrollReveal();
-  sr.reveal('.sr-icons', {
-    duration: 600,
-    scale: 0.3,
-    distance: '0px'
-  }, 200);
-  sr.reveal('.sr-button', {
-    duration: 1000,
-    delay: 200
-  });
-  sr.reveal('.sr-contact', {
-    duration: 600,
-    scale: 0.3,
-    distance: '0px'
-  }, 300);
+    // Scroll reveal calls
+    window.sr = ScrollReveal();
+    sr.reveal('.sr-icons', {
+      duration: 600,
+      scale: 0.3,
+      distance: '0px'
+    }, 200);
+    sr.reveal('.sr-button', {
+      duration: 1000,
+      delay: 200
+    });
+    sr.reveal('.sr-contact', {
+      duration: 600,
+      scale: 0.3,
+      distance: '0px'
+    }, 300);
 
-  // Magnific popup calls
-  $('.popup-gallery').magnificPopup({
-    delegate: 'a',
-    type: 'image',
-    tLoading: 'Loading image #%curr%...',
-    mainClass: 'mfp-img-mobile',
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0, 1]
-    },
-    image: {
-      tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-    }
-  });
+    // Magnific popup calls
+    $('.popup-gallery').magnificPopup({
+      delegate: 'a',
+      type: 'image',
+      tLoading: 'Loading image #%curr%...',
+      mainClass: 'mfp-img-mobile',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0, 1]
+      },
+      image: {
+        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+      }
+    });
 
-})(jQuery); // End of use strict
-</script>
+  })(jQuery); // End of use strict
+  </script>
 <% end %>
