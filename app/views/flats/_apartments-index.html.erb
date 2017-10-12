@@ -6,6 +6,7 @@
           <%= link_to flat_path(flat), class: "apartment-box-content" do %>
             <h1><%= flat.name %></h1>
             <p><%= flat.description %></p>
+            <button class="btn btn-primary btn-lg" href="<%= flat_path(flat) %>">See Details</button>
           <% end %>
         </div>
       </div>
