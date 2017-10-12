@@ -2,6 +2,7 @@
   min-height: 350px;
   background-position: center;
   background-size: cover;
+  width: 100%;
   .apartment-box-content {
     position: relative;
     display: block;
@@ -12,23 +13,49 @@
     text-decoration: none;
     color: white;
     h1, p {
-      opacity: 0;
+      display: none;
     }
     p {
       font-size: 18px;
       padding-left: 50%;
     }
+    @media (max-width: 750px) {
+      padding: 20px;
+      background-color: rgba(119, 119, 119, 0.7);
+      h1, p {
+        display: block;
+      }
+      h1 {
+        font-size: 25px;
+        font-weight: bold;
+      }
+      p {
+        padding-left: 30px;
+        font-size: 15px;
+        &.underline {
+          text-decoration: underline;
+          &:hover {
+            font-weight: bold;
+          }
+        }
+      }
+    }
     .btn-primary.btn-lg {
+      @media (max-width: 750px) {
+        display: none;
+      }
       position: absolute;
       bottom: 60px;
       left: 60px;
     }
   }
-  &:hover {
-    .apartment-box-content {
-      background-color: rgba(119, 119, 119, 0.7);
-      h1, p {
-        opacity: 1;
+  @media (min-width: 750px) {
+    &:hover {
+      .apartment-box-content {
+        background-color: rgba(119, 119, 119, 0.7);
+        h1, p {
+          display: block;
+        }
       }
     }
   }
