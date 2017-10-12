@@ -1,3 +1,44 @@
 .appartment-details-header {
+  #carousel {
+    overflow: hidden;
+    .carousel-inner {
+      min-width: 345px;
+      .carousel-item {
+        max-height: 100vh;
+        width: 100%;
+        img {
+          bottom: 0;
+          height: auto !important;
+        }
+      }
+    }
+    #filter {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.1) 0%, rgba(53, 53, 53,0.1) 50%);
+    }
 
+    #price-over-carrousel {
+      bottom: -260px;
+      position: absolute;
+      background: rgba(255, 97, 0, 0.9);
+      height: 400px;
+      width: 110%;
+      transform: rotate(-9deg);
+      right: -50px;
+    }
+    @media (min-width: 486px) {
+      #price-over-carrousel {
+        top: 80%;
+      }
+    }
+    @media (min-width: 840px) {
+      #price-over-carrousel {
+        top: 85%;
+      }
+    }
+  }
 }

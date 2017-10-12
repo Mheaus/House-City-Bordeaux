@@ -7,9 +7,17 @@ urls = [
   'https://a0.muscache.com/im/pictures/103126695/1873ecff_original.jpg?aki_policy=x_large'
 ]
 
+environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
+
+def seed_image(file_name)
+  File.open(File.join(Rails.root, "/app/assets/images/#{file_name}.jpg"))
+end
+
 Flat.create(name: "Charmante maison au calme de 115 M²", address: "42 rue Binaud")
 
-Flat.first.photo_urls = urls
+Flat.all.each do |flat|
+  flat.photo_urls = urls
+end
 
 puts "#{Flat.all.size} flats created !"
 

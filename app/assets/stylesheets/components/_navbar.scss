@@ -6,8 +6,13 @@
   @include transition-all;
   .navbar-brand {
     font-weight: 700;
-    text-transform: uppercase;
     color: $theme-primary;
+    &.uppercase {
+      text-transform: uppercase;
+    }
+    &.back {
+      font-size: 26px;
+    }
     @include sans-serif-font;
     &:focus,
     &:hover {
