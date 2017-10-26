@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.1) 0%, rgba(53, 53, 53,0.2) 50%);">
-  <div class="container-fluid p-3">
+  <div class="container-fluid p-1">
     <%= link_to flats_path, class: "navbar-brand js-scroll-trigger back" do %>
         <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Index
     <% end %>
@@ -20,16 +20,58 @@
   <div class="container-fluid p-0">
     <div id="carousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
-        <% @flat.photos.each_with_index do |photo, i| %>
-          <div class="carousel-item flip">
-            <%= cl_image_tag photo.path, width: "100%", class: "d-block img-fluid flip" %>
+        <% 9.times do |t| %>
+          <div class="carousel-item" style='background-image: url("<%= image_url "outdoor#{t+1}"%>");'>
           </div>
         <% end %>
-        <div id="price-over-carrousel"></div>
+        <div class="row" id="price-over">
+          <div class="col-3 price-box">
+            <p id="price">110</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </header>
+
+<section id="over-content">
+  <div class="container-fluid">
+    <div class="row">
+      <h1 class="col-12"><%= @flat.name %></h1>
+      <p class="col-6 ml-3"><%= @flat.description %></p>
+    </div>
+
+    <div class="row">
+    <span>
+      The space
+
+      Située dans le quartier des Chartrons.
+      Charmante maison au calme de 115 M2, qui peut accueillir de 2 à 8 personnes.
+      La maison est une dépendance située au fond de notre jardin,la terrasse cloturée sépare les 2 maisons.
+
+      Descriptif :
+      - Grand salon/salle à manger ensoleillé donnant sur la terrasse (canapé convertible 2 places, table basse, meuble Tv, grand écran plat, table pour manger) ;
+      - Cuisine américaine toute équipée : réfrigérateur, four, micro-onde, plaque à induction, lave-vaisselle, grille pain, machine à café, assortiments de vaisselles et de verres.
+      - Buanderie avec machine à laver
+      - Suite parentale : lit 2 places 160×200, tables de chevet, dressing, salle de bain et douche tout confort.
+
+      Etage :
+      - Chambre mansardée : 2 lits d'une place 90x200 modulable pour un lit de 2 personnes, table de chevet, commode ;
+      - Mezzanine avec lit 2 places 140x200 qui vue sur le salon (pouvant faire office de salle de jeu , coin détente, bureau...)
+      - Salle d'eau + toilette.
+
+      - Linge de maison : nous vous fournissons les draps et les serviettes de toilette GRATUITEMENT !
+      - Sur demande lit parapluie combiné et chaise haute.
+      - Le logement est équipé de la climatisation.
+
+      Des dépliants sont à votre disposition pour des idées de circuits touristiques, Wine Tour, des bons plans aux alentours, des musées, des zoos, des plages, parc aquatique.....
+      Une machine à café tassimo est mise à votre disposition. Pensez à emporter des capsules si vous le désirez.
+    </span>
+
+    </div>
+
+  </div>
+</section>
 
 <%= content_for :after_js do %>
 <script>

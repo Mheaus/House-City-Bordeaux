@@ -1,14 +1,14 @@
 .appartment-details-header {
+
   #carousel {
     overflow: hidden;
     .carousel-inner {
-      min-width: 345px;
+
       .carousel-item {
-        max-height: 100vh;
-        width: 100%;
-        img {
-          bottom: 0;
-          height: auto !important;
+        background-position: middle bottom;
+        background-size: cover;
+        h1 {
+          font-size: 20px;
         }
       }
     }
@@ -21,24 +21,52 @@
       background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.1) 0%, rgba(53, 53, 53,0.1) 50%);
     }
 
-    #price-over-carrousel {
-      bottom: -260px;
+    #price-over {
       position: absolute;
+      top: 85%;
       background: rgba(255, 97, 0, 0.9);
       height: 400px;
       width: 110%;
       transform: rotate(-9deg);
       right: -50px;
-    }
-    @media (min-width: 486px) {
-      #price-over-carrousel {
+      @media (min-width: 486px) {
         top: 80%;
       }
-    }
-    @media (min-width: 840px) {
-      #price-over-carrousel {
+      @media (min-width: 840px) {
         top: 85%;
       }
     }
+  }
+  .price-box {
+    transform: rotate(9deg);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    text-align: center;
+    #price {
+      font-size: 60px;
+      font-weight: 30px;
+      margin: 0 7%;
+    }
+    @media (min-width: 1280px) {
+      top: 35px;
+      right: 20px;
+      #price {
+        font-size: 4.5rem;
+      }
+    }
+  }
+}
+
+#over-content {
+  display: none;
+  position: absolute;
+  top: 80px;
+  height: 100%;
+  width: 100%;
+  background: rgba(12, 188, 0, 0.6);
+  z-index: 3;
+  p {
+    font-size: 18px;
   }
 }
