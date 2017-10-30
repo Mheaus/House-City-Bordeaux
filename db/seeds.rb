@@ -8,7 +8,11 @@ def seed_image(file_name)
   File.open(File.join(Rails.root, "/app/assets/images/#{file_name}.jpg"))
 end
 
-Flat.create(name: "Charmante Maison avec Terrasse au Calme de 115m²", address: "42 rue Binaud", description: "En plein coeur des Chartrons au calme à 10m à pied des quais et du centre , maison spacieuse et agréable ; salon de 45m² et sa cuisine toute équipée, une suite parentale, une chambre mansardée et une mezzanine,d'une terrasse privative de 30m² équipée d'un salon de jardin...")
+Flat.create(
+  name: "Maison avec Terrasse",
+  address: "42 rue Binaud",
+  description: "Au calme en plein coeur des Chartrons, maison spacieuse et agréable ; salon de 45m² et sa cuisine toute équipée, une suite parentale, une chambre mansardée et une mezzanine,d'une terrasse privative de 30m² équipée d'un salon de jardin."
+)
 
 Flat.all.each do |flat|
   flat.photo_urls = urls

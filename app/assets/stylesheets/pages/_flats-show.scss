@@ -1,72 +1,76 @@
+
+
 .appartment-details-header {
 
   #carousel {
-    overflow: hidden;
+    // overflow: hidden;
     .carousel-inner {
-
+      height: 13em;
       .carousel-item {
+        position: relative;
+        height: 100%;
         background-position: middle bottom;
         background-size: cover;
+
         h1 {
           font-size: 20px;
         }
+        .image-blur {
+          position: absolute;
+          width: 100%;
+          filter: blur(3px);
+        }
+        .image-box {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          .image {
+            height: 100%;
+          }
+        }
       }
     }
-    #filter {
+  }
+}
+
+#content {
+  padding: 0;
+  padding-top: 1em;
+  #title-price-box {
+    position: relative;
+    padding-left: 0.25em;
+    p {
+      margin: 0;
+    }
+    .title {
+      font-size: 1.25em;
+      font-weight: bold;
+      &.surface {
+        padding-left: 0.5em;
+      }
+    }
+    #price-box {
       position: absolute;
-      z-index: 2;
+      background-color: #575757;
       top: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.1) 0%, rgba(53, 53, 53,0.1) 50%);
-    }
-
-    #price-over {
-      position: absolute;
-      top: 85%;
-      background: rgba(255, 97, 0, 0.9);
-      height: 400px;
-      width: 110%;
-      transform: rotate(-9deg);
-      right: -50px;
-      @media (min-width: 486px) {
-        top: 80%;
+      right: 0;
+      width: 7.625em;
+      height: 3.875em;
+      text-align: right;
+      color: #F1F1F1;
+      padding-right: 0.5em;
+      font-weight: lighter;
+      .price {
+        margin-top: -0.1em;
+        font-size: 2.125em;
       }
-      @media (min-width: 840px) {
-        top: 85%;
-      }
-    }
-  }
-  .price-box {
-    transform: rotate(9deg);
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    text-align: center;
-    #price {
-      font-size: 60px;
-      font-weight: 30px;
-      margin: 0 7%;
-    }
-    @media (min-width: 1280px) {
-      top: 35px;
-      right: 20px;
-      #price {
-        font-size: 4.5rem;
+      .unity {
+        margin-top: -0.75em;
+        font-size: 1em;
+        color: #D0D0D0;
       }
     }
   }
 }
 
-#over-content {
-  display: none;
-  position: absolute;
-  top: 80px;
-  height: 100%;
-  width: 100%;
-  background: rgba(12, 188, 0, 0.6);
-  z-index: 3;
-  p {
-    font-size: 18px;
-  }
-}
