@@ -1,5 +1,4 @@
 
-
 .appartment-details-header {
 
   #carousel {
@@ -72,11 +71,32 @@
     }
   }
   #description-content-insights {
-    margin: 1.25em 0.75em;
+    margin-top: 1.25em;
     .description-content {
       font-size: 0.8em;
+    }
+    .insights {
+      font-size: 0.8em;
+      padding: 0.5em 1em;
+      .insight {
+        margin: 0.25em 1.25em;
+        p {
+          font-size: 1em;
+          display: flex;
+          align-items: center;
+          svg {
+            margin-right: 0.3em;
+          }
+        }
+      }
     }
   }
 }
 
+#rooms-description {
+  padding: 0;
+  .btn-group {
+
+  }
+}
 
