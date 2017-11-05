@@ -17,6 +17,7 @@
 //= require jquery.easing
 //= require scrollReveal
 //= require magnific-popup
+//= require photoswipe
 //
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
