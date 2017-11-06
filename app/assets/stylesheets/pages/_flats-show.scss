@@ -94,6 +94,7 @@
 }
 
 #rooms-description {
+  margin-top: 0.5em;
   padding: 0 0.5em;
   #btn-rooms {
     width: 100%;
@@ -113,7 +114,15 @@
     }
   }
   #rooms-description-content {
+    height: 0;
+    opacity: 0;
     margin: 1em 0.25em;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out;
+    &.expand {
+      height: auto;
+      opacity: 1;
+    }
     .location-indication {
       font-size: 0.85em;
       font-weight: bold;
@@ -146,4 +155,61 @@
     }
   }
 }
+
+#rules {
+  padding: 0 1em;
+  p {
+    margin: 0;
+  }
+  .title {
+    width: 11em;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom: 1px solid $theme-primary-lighter;
+  }
+  .container {
+    padding: 0.75em 0.5em 0 0.5em;
+    .rule {
+      font-size: 1.1em;
+      letter-spacing: 0.75px;
+      font-weight: lighter;
+    }
+  }
+}
+
+#extra {
+  margin: 0.75em 0.5em;
+  padding: 0.25em 0.3em;
+  text-align: center;
+  border: 1px solid #CBCBCB;
+  p {
+    margin: 0;
+    font-size: 0.8em;
+  }
+}
+
+#links {
+  padding: 0;
+  a {
+    display: block;
+    &.maps-location-link {
+      margin: 0 1em;
+      color: $theme-primary-light;
+      text-align: center;
+      font-weight: lighter;
+      font-size: 1.25em;
+      letter-spacing: 1px;
+    }
+    &.btn-xl {
+      margin: 1em 1em 1.5em 1em;
+      color: white;
+      background-color: $theme-primary-light;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 1.125em;
+      letter-spacing: 1.5px;
+    }
+  }
+}
+
 
