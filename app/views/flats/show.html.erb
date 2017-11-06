@@ -55,14 +55,14 @@
     <p class="location-indication">Le logement est situé à 10 minutes à pied des quais et du centre</p>
     <div id="rooms-container">
       <% @flat.rooms.each_with_index do |room, i| %>
-        <div class="room" id="room<%= i %>">
+        <div class="room" id="<%= "room#{i}:#{room.name}" %>">
           <p class="room-description"><%= room.description %></p>
           <div class="room-images-box row">
             <div class="col-6 text-center">
-              <%= image_tag "outdoor2" %>
+              <%= image_tag @photos[i][0], class: "room-image" %>
             </div>
             <div class="col-6 text-center">
-              <%= image_tag "outdoor8" %>
+              <%= image_tag @photos[i][1], class: "room-image" %>
             </div>
           </div>
           <%= link_to "cliquer pour voir plus de photos", "##{room.name}", class: "room-images-galery-link" %>
@@ -83,16 +83,18 @@
 </section>
 
 <section id="extra">
-  <p>Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>Lit parapluie combiné et chaise haute sur demande.</p>
+  <p>
+    Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>
+    Lit parapluie combiné et chaise haute sur demande.
+  </p>
 </section>
 
 <section id="links">
-  <%= link_to "Voir l'emplacement du quartier sur google maps", "#map", class: "maps-location-link" %>
+  <%= link_to "Voir l'emplacement du quartier sur google maps", "#map", id: "maps-location-link" %>
   <%= link_to "Réserver", "https://www.airbnb.fr/rooms/6747273", class: "btn-xl" %>
 </section>
 
 <%= render "shared/photoswipe" %>
-
 
 <%= content_for :after_js do %>
 <script>
@@ -102,46 +104,38 @@
       interval: 3500,
       pause: "none"
     })
-  });
 
-  $(document).ready(function(){
     $('#btn-rooms').on('click', function(e){
       console.log(e);
       $('#btn-rooms>span').toggleClass('fa-caret-down');
       $('#btn-rooms>span').toggleClass('fa-caret-up');
       $('#rooms-description-content').toggleClass('expand');
     });
-  });
 
+    $('#maps-location-link').on('click', function(e){
+      e.preventDefault();
 
+    });
 
-  var openPhotoSwipe = function() {
-    var pswpElement = document.querySelectorAll('.pswp')[0];
+    $('.room-images-galery-link').on('click', function(e){
+      e.preventDefault();
+      console.log(e);
+      var items = [
+        {
+          src: $(this).parent().find('.room-image')[0].src,
+          w: 1024,
+          h: 683
+        },
+        {
+          src: $(this).parent().find('.room-image')[1].src,
+          w: 1024,
+          h: 683
+        }
+      ];
 
-    var items = [
-      {
-        src: 'https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg',
-        w: 964,
-        h: 1024
-      },
-      {
-        src: 'https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg',
-        w: 1024,
-        h: 683
-      }
-    ];
-    var options = {
-      showAnimationDuration: 0,
-      hideAnimationDuration: 0
-    };
-
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-  };
-
-  $('.room-images-link').on('click', function(e){
-    console.log(e);
-    openPhotoSwipe();
+      var gallery = new PhotoSwipe( $('.pswp')[0], PhotoSwipeUI_Default, items);
+      gallery.init();
+    });
   });
 </script>
 <% end %>
