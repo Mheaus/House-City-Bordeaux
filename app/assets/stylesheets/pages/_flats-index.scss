@@ -1,0 +1,67 @@
+// Styling for the services section
+.service-box {
+  max-width: 400px;
+  margin: 50px auto 0;
+  @media (min-width: 992px) {
+    margin: 20px auto 0;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+section#apartments-container {
+  padding: 0;
+  background-position: center;
+  background-size: cover;
+  .apartment-link {
+    text-decoration: none;
+    .apartment {
+      position: relative;
+      min-height: 350px;
+      padding: 50px;
+      text-align: right;
+      background-color: rgba(119, 119, 119, 0);
+      transition: background-color 0.3s;
+      p {
+        color: white;
+        opacity: 0;
+        font-size: 1em;
+        padding-left: 30%;
+        transition: opacity 0.3s;
+        letter-spacing: 1px;
+        &.title {
+          font-weight: normal;
+          font-size: 1.3em;
+        }
+        &.underline {
+          text-decoration: underline;
+          font-weight: bold;
+        }
+      }
+      &:hover {
+        background-color: rgba(119, 119, 119, 0.7);
+        p {
+          opacity: 1;
+        }
+      }
+      @media (max-width: 750px) {
+        padding: 20px;
+        background-color: rgba(119, 119, 119, 0.7);
+        p {
+          opacity: 1;
+          padding-left: 0;
+          font-weight: lighter;
+        }
+      }
+      .btn-primary.btn-lg {
+        @media (max-width: 750px) {
+          display: none;
+        }
+        position: absolute;
+        bottom: 3.75em;
+        left: 3.75em;
+      }
+    }
+  }
+}

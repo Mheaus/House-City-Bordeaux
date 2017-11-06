@@ -1,12 +1,32 @@
-<%= render "navbar-index" %>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand uppercase js-scroll-trigger" href="#page-top">House City Bordeaux</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#apartments">Appartements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <header class="masthead" style="background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.6) 0%, rgba(53, 53, 53,0.6) 50%), url(<%= image_url "outdoor#{rand(1..9)}" %>);">
   <div class="header-content">
     <div class="header-content-inner">
-      <h1 id="homeHeading">42 rue Binaud, Chartrons</h1>
+      <h1 id="homeHeading">Quartier des Chartrons, Bordeaux</h1>
       <hr>
-      <p>The best place to stay in Bordeaux</p>
-      <%= link_to "See Details", flat_path(@flats.first), class: "btn btn-primary btn-xl js-scroll-trigger" %>
+      <p>Le meilleur endroit où loger</p>
+      <%= link_to "Réserver", flat_path(@flats.first), class: "btn btn-primary btn-xl js-scroll-trigger" %>
     </div>
   </div>
   <%= link_to "#services", class: "circle-down-services js-scroll-trigger" do %>
@@ -19,17 +39,88 @@
 <iframe width="100%" alt="map" height="450" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/place?q=42+rue+Binaud+Bordeaux&key=<%= ENV['GOOGLE_MAPS_API_KEY']%>" allowfullscreen></iframe>
 
-<%= render "services-index" %>
+<section id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">A votre service</h2>
+        <hr class="primary">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <i class="fa fa-4x fa-child text-primary sr-icons"></i>
+          <h3>Tranquille</h3>
+          <p class="text-muted">Idéal pour les familles, calm et silencieux + mobilier pour nouveaux nés à la demande</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <i class="fa fa-4x fa-taxi text-primary sr-icons"></i>
+          <h3>Accessible</h3>
+          <p class="text-muted">Facile d'accès et près du centre + parking et chauffeur en option</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <i class="fa fa-4x fa-laptop text-primary sr-icons"></i>
+          <h3>Connecté</h3>
+          <p class="text-muted">Connection internet de bonne qualité avec télévision et services de réservation en ligne</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <i class="fa fa-4x fa-thumbs-up text-primary sr-icons"></i>
+          <h3>Très demandé</h3>
+          <p class="text-muted">Très recommandé sur Airbnb</p>
+          <p class="text-muted"><%= link_to "Voir les commentaires sur Airbnb", "https://www.airbnb.com/rooms/6747273?_branch_match_id=444476649525065446&adults=6&guests=6&locale=en&ref_device_id=771c0003c13b7460&s=26&user_id=35326501#reviews", target: "_blank"%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<%= render "apartments-index" %>
+<section id="apartments-container" style="background-image: url(<%= cl_image_path("6002bc6b_original_m7lit4") %>);">
+  <% @flats.each do |flat| %>
+    <%= link_to flat_path(flat), class: "apartment-link" do %>
+      <div class="apartment" >
+        <p class="title"><%= flat.name %></p>
+        <p><%= flat.description %></p>
+        <p class="underline">cliquer ici pour voir plus de détails</p>
+        <button class="btn-primary btn-lg" href="<%= flat_path(flat) %>">Détails</button>
+      </div>
+    <% end %>
+  <% end %>
+</section>
 
 <%#= render "discover-index" %>
 
-<%= render "contact-index" %>
-
-<%= content_for :metahead do %>
-<link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<% end %>
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="section-heading">Contact</h2>
+        <hr class="primary">
+        <p>Vous souhaitez poser une question ou réserver ? Il suffit d'appeler ou d'envoyer un mail.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 ml-auto text-center">
+        <i class="fa fa-phone fa-3x sr-contact"></i>
+        <p>(+33) 6 63 40 79 05</p>
+      </div>
+      <div class="col-lg-4 mr-auto text-center">
+        <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+        <p>
+          <a href="mailto:your-email@your-domain.com">hangar.loc@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <%= content_for :after_js do %>
   <script>
