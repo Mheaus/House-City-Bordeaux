@@ -57,10 +57,6 @@ gem "autoprefixer-rails"
 gem 'magnific-popup-rails', '~> 1.1.0'
 gem 'jquery-easing-rails'
 gem "scrollreveal-rails"
-gem "figaro"
-gem "cloudinary", '1.1.7'
-gem 'attachinary', github: 'assembler/attachinary'
-gem 'jquery-fileupload-rails'
 gem "font-awesome-rails"
 gem "photoswipe-rails"
 
