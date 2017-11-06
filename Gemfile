@@ -63,4 +63,4 @@ gem "font-awesome-rails"
 gem "photoswipe-rails"
 
 gem 'cloudinary'
-
+gem 'carrierwave'

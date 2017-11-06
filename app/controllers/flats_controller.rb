@@ -14,7 +14,7 @@ class FlatsController < ApplicationController
 
     @photos = [
       ["outdoor2", "outdoor8"],
-      ["salon1", "salon4"],
+      ["living1", "living4"],
       ["cuisine1", "cuisine7"],
       ["chambre1", "chambre2"],
       ["chambre3", "chambre5"],

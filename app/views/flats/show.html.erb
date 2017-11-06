@@ -1,19 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top show" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-light show" id="secondNav">
   <div class="container-fluid">
     <%= link_to "Retour", flats_path, class: "navbar-brand back" %>
     <p id="disponibility">Actuellement disponible</p>
   </div>
 </nav>
 
-<header class="appartment-details-header">
+<header class="appartment-details-header show">
   <div class="container-fluid p-0">
     <div id="carousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <% 9.times do |t| %>
           <div class="carousel-item">
-            <%= image_tag "outdoor#{t+1}", class: "image-blur" %>
+            <%= image_tag cl_image_path("hcb/42_rue-Binaud/outdoor#{t+1}.jpg"), class: "image-blur" %>
             <div class="image-box">
-              <%= image_tag "outdoor#{t+1}", class: "image" %>
+              <%= image_tag cl_image_path("hcb/42_rue-Binaud/outdoor#{t+1}.jpg"), class: "image" %>
             </div>
           </div>
         <% end %>
@@ -22,7 +22,7 @@
   </div>
 </header>
 
-<section id="description-header">
+<section class="show" id="description-header">
   <div id="title-price-box">
     <p class="title name"><%= @flat.name %></p>
     <p class="title surface">115m²</p>
@@ -45,7 +45,7 @@
   </div>
 </section>
 
-<section id="rooms-description">
+<section class="show" id="rooms-description">
   <button type="button" id="btn-rooms">
     Descriptif complet des pièces
     <span class="fa fa-caret-down" id="arrow" title="expand rooms-description-content">
@@ -59,10 +59,10 @@
           <p class="room-description"><%= room.description %></p>
           <div class="room-images-box row">
             <div class="col-6 text-center">
-              <%= image_tag @photos[i][0], class: "room-image" %>
+              <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@photos[i][0]}.jpg"), class: "room-image" %>
             </div>
             <div class="col-6 text-center">
-              <%= image_tag @photos[i][1], class: "room-image" %>
+              <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@photos[i][1]}.jpg"), class: "room-image" %>
             </div>
           </div>
           <%= link_to "cliquer pour voir plus de photos", "##{room.name}", class: "room-images-galery-link" %>
@@ -72,7 +72,7 @@
   </div>
 </section>
 
-<section id="rules">
+<section class="show" id="rules">
   <p class="title">Réglement Intérieur</p>
   <div class="container">
     <p class="rule">Non fumeur</p>
@@ -82,14 +82,14 @@
   </div>
 </section>
 
-<section id="extra">
+<section class="show" id="extra">
   <p>
     Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>
     Lit parapluie combiné et chaise haute sur demande.
   </p>
 </section>
 
-<section id="links">
+<section class="show" id="links">
   <%= link_to "Voir l'emplacement du quartier sur google maps", "#map", id: "maps-location-link" %>
   <%= link_to "Réserver", "https://www.airbnb.fr/rooms/6747273", class: "btn-xl" %>
 </section>

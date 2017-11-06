@@ -1,215 +1,220 @@
-
-.appartment-details-header {
-
-  #carousel {
-    // overflow: hidden;
-    .carousel-inner {
-      height: 13em;
-      .carousel-item {
-        position: relative;
-        height: 100%;
-        background-position: middle bottom;
-        background-size: cover;
-
-        h1 {
-          font-size: 20px;
-        }
-        .image-blur {
-          position: absolute;
-          width: 100%;
-          filter: blur(3px);
-        }
-        .image-box {
-          position: absolute;
+.show {
+  @media (min-width: 500px) {
+    font-size: 24px;
+  }
+  &.appartment-details-header {
+    @media (min-width: 550px) {
+      font-size: 30px;
+    }
+    #carousel {
+      // overflow: hidden;
+      .carousel-inner {
+        height: 13em;
+        .carousel-item {
+          position: relative;
           height: 100%;
-          width: 100%;
-          text-align: center;
-          .image {
+          background-position: middle bottom;
+          background-size: cover;
+
+          h1 {
+            font-size: 20px;
+          }
+          .image-blur {
+            position: absolute;
+            width: 100%;
+            filter: blur(3px);
+          }
+          .image-box {
+            position: absolute;
             height: 100%;
+            width: 100%;
+            text-align: center;
+            .image {
+              height: 100%;
+            }
           }
         }
       }
     }
   }
-}
 
 
-#description-header {
-  margin-top: 1em;
-  padding: 0;
-  padding-left: 0.25em;
-  position: relative;
-  p {
-    margin: 0;
-  }
-  .title {
-    font-size: 1.25em;
-    font-weight: bold;
-    &.surface {
-      padding-left: 0.5em;
+  &#description-header {
+    margin-top: 1em;
+    padding: 0;
+    padding-left: 0.25em;
+    position: relative;
+    p {
+      margin: 0;
     }
-  }
-  #price-box {
-    position: absolute;
-    background-color: #575757;
-    top: 0;
-    right: 0;
-    width: 7.625em;
-    height: 3.875em;
-    text-align: right;
-    color: #F1F1F1;
-    padding-right: 0.5em;
-    font-weight: lighter;
-    .price {
-      margin-top: -0.1em;
-      font-size: 2.125em;
-    }
-    .unity {
-      margin-top: -0.75em;
-      font-size: 1em;
-      color: #D0D0D0;
-    }
-  }
-  #description-content-insights {
-    margin-top: 1.25em;
-    .description-content {
-      font-size: 0.8em;
-    }
-    .insights {
-      font-size: 0.8em;
-      padding: 0.5em 1em;
-      .insight {
-        margin: 0.25em 1.25em;
-        p {
-          font-size: 1em;
-          display: flex;
-          align-items: center;
-          svg {
-            margin-right: 0.3em;
-          }
-        }
-      }
-    }
-  }
-}
-
-#rooms-description {
-  margin-top: 0.5em;
-  padding: 0 0.5em;
-  #btn-rooms {
-    width: 100%;
-    padding: 0.25em 1em;
-    border: solid 1px #C0C0C0;
-    border-radius: 5px;
-    color: #3B3B3B;
-    background-color: #F5F5F5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8em;
-    #arrow {
-      color: $theme-primary-lighter;
-      margin: 0 0.25em;
-      font-size: 2.5em;
-    }
-  }
-  #rooms-description-content {
-    height: 0;
-    opacity: 0;
-    margin: 1em 0.25em;
-    overflow: hidden;
-    transition: opacity 0.5s ease-out;
-    &.expand {
-      height: auto;
-      opacity: 1;
-    }
-    .location-indication {
-      font-size: 0.85em;
-      font-weight: bold;
-    }
-    #rooms-container {
-      text-align: center;
-      .room {
-        margin-bottom: 1.5em;
-        .room-description {
-          font-size: 0.8em;
-          text-align: center;
-        }
-        .room-images-box {
-          height: 4.75em;
-
-          padding: 0 2em;
-          img {
-            height: 100%;
-            width: 7.5em;
-          }
-        }
-        .room-images-galery-link {
-          font-size: 0.625em;
-          padding: 0.25em 2em;
-          width: 100%;
-          color: $gray-light;
-          border-bottom: 1px solid #D7D7D7;
-        }
-      }
-    }
-  }
-}
-
-#rules {
-  padding: 0 1em;
-  p {
-    margin: 0;
-  }
-  .title {
-    width: 11em;
-    font-size: 1.1em;
-    font-weight: bold;
-    border-bottom: 1px solid $theme-primary-lighter;
-  }
-  .container {
-    padding: 0.75em 0.5em 0 0.5em;
-    .rule {
-      font-size: 1.1em;
-      letter-spacing: 0.75px;
-      font-weight: lighter;
-    }
-  }
-}
-
-#extra {
-  margin: 0.75em 0.5em;
-  padding: 0.25em 0.3em;
-  text-align: center;
-  border: 1px solid #CBCBCB;
-  p {
-    margin: 0;
-    font-size: 0.8em;
-  }
-}
-
-#links {
-  padding: 0;
-  a {
-    display: block;
-    &#maps-location-link {
-      margin: 0 1em;
-      color: $theme-primary-light;
-      text-align: center;
-      font-weight: lighter;
+    .title {
       font-size: 1.25em;
-      letter-spacing: 1px;
+      font-weight: bold;
+      &.surface {
+        padding-left: 0.5em;
+      }
     }
-    &.btn-xl {
-      margin: 1em 1em 1.5em 1em;
-      color: white;
-      background-color: $theme-primary-light;
+    #price-box {
+      position: absolute;
+      background-color: #575757;
+      top: 0;
+      right: 0;
+      width: 7.625em;
+      height: 3.875em;
+      text-align: right;
+      color: #F1F1F1;
+      padding-right: 0.5em;
+      font-weight: lighter;
+      .price {
+        margin-top: -0.1em;
+        font-size: 2.125em;
+      }
+      .unity {
+        margin-top: -0.75em;
+        font-size: 1em;
+        color: #D0D0D0;
+      }
+    }
+    #description-content-insights {
+      margin-top: 1.25em;
+      .description-content {
+        font-size: 0.8em;
+      }
+      .insights {
+        font-size: 0.8em;
+        padding: 0.5em 1em;
+        .insight {
+          margin: 0.25em 1.25em;
+          p {
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            svg {
+              margin-right: 0.3em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &#rooms-description {
+    margin-top: 0.5em;
+    padding: 0 0.5em;
+    #btn-rooms {
+      width: 100%;
+      padding: 0.25em 1em;
+      border: solid 1px #C0C0C0;
       border-radius: 5px;
-      text-align: center;
-      font-size: 1.125em;
-      letter-spacing: 1.5px;
+      color: #3B3B3B;
+      background-color: #F5F5F5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8em;
+      #arrow {
+        color: $theme-primary-lighter;
+        margin: 0 0.25em;
+        font-size: 2.5em;
+      }
+    }
+    #rooms-description-content {
+      height: 0;
+      opacity: 0;
+      margin: 1em 0.25em;
+      overflow: hidden;
+      transition: opacity 0.5s ease-out;
+      &.expand {
+        height: auto;
+        opacity: 1;
+      }
+      .location-indication {
+        font-size: 0.85em;
+        font-weight: bold;
+      }
+      #rooms-container {
+        text-align: center;
+        .room {
+          margin-bottom: 1.5em;
+          .room-description {
+            font-size: 0.8em;
+            text-align: center;
+          }
+          .room-images-box {
+            height: 4.75em;
+
+            padding: 0 2em;
+            img {
+              height: 100%;
+              width: 7.5em;
+            }
+          }
+          .room-images-galery-link {
+            font-size: 0.625em;
+            padding: 0.25em 2em;
+            width: 100%;
+            color: $gray-light;
+            border-bottom: 1px solid #D7D7D7;
+          }
+        }
+      }
+    }
+  }
+
+  &#rules {
+    padding: 0 1em;
+    p {
+      margin: 0;
+    }
+    .title {
+      width: 11em;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-bottom: 1px solid $theme-primary-lighter;
+    }
+    .container {
+      padding: 0.75em 0.5em 0 0.5em;
+      .rule {
+        font-size: 1.1em;
+        letter-spacing: 0.75px;
+        font-weight: lighter;
+      }
+    }
+  }
+
+  &#extra {
+    margin: 0.75em 0.5em;
+    padding: 0.25em 0.3em;
+    text-align: center;
+    border: 1px solid #CBCBCB;
+    p {
+      margin: 0;
+      font-size: 0.8em;
+    }
+  }
+
+  &#links {
+    padding: 0;
+    a {
+      display: block;
+      &#maps-location-link {
+        margin: 0 1em;
+        color: $theme-primary-light;
+        text-align: center;
+        font-weight: lighter;
+        font-size: 1.25em;
+        letter-spacing: 1px;
+      }
+      &.btn-xl {
+        margin: 1em 1em 1.5em 1em;
+        color: white;
+        background-color: $theme-primary-light;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1.125em;
+        letter-spacing: 1.5px;
+      }
     }
   }
 }
-
 
