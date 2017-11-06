@@ -62,3 +62,5 @@ gem "scrollreveal-rails"
 gem "font-awesome-rails"
 gem "photoswipe-rails"
 
+gem 'cloudinary'
+
