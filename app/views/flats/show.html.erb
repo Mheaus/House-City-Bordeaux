@@ -11,9 +11,9 @@
       <div class="carousel-inner" role="listbox">
         <% 9.times do |t| %>
           <div class="carousel-item">
-            <%= image_tag cl_image_path("hcb/42_rue-Binaud/outdoor#{t+1}.jpg"), class: "image-blur" %>
+            <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@background_photos[t]}.jpg"), class: "image-blur" %>
             <div class="image-box">
-              <%= image_tag cl_image_path("hcb/42_rue-Binaud/outdoor#{t+1}.jpg"), class: "image" %>
+              <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@background_photos[t]}.jpg"), class: "image" %>
             </div>
           </div>
         <% end %>

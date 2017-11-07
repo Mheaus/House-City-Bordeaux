@@ -12,14 +12,10 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
 
-    @photos = [
-      ["outdoor2", "outdoor8"],
-      ["living1", "living4"],
-      ["cuisine1", "cuisine7"],
-      ["chambre1", "chambre2"],
-      ["chambre3", "chambre5"],
-      ["chambre6", "salon4"],
-      ["bathroom1", "dressing1"]
+    @background_photos = [
+      "outdoor1", "living1", "cuisine1",
+      "outdoor9", "living2", "chambre5",
+      "outdoor2", "living4", "outdoor8"
     ]
   end
 
