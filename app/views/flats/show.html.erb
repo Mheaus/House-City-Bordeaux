@@ -92,7 +92,7 @@
           Lit parapluie combiné et chaise haute sur demande.
         </p>
       </div>
-      <%= link_to "Voir l'emplacement du quartier sur google maps", "#map", id: "maps-location-link" %>
+      <%= link_to "Voir l'emplacement du quartier sur google maps", "https://www.google.fr/maps/@44.8414409,-0.5694787,1283a,35y,39.11t/data=!3m1!1e3", id: "maps-location-link", target: '_blank' %>
       <%= link_to "Réserver", "https://www.airbnb.fr/rooms/6747273", class: "btn-xl"%>
     </div>
   </div>
@@ -116,11 +116,6 @@
       $('#btn-rooms>span').toggleClass('fa-caret-down');
       $('#btn-rooms>span').toggleClass('fa-caret-up');
       $('#rooms-description-content').toggleClass('expand');
-    });
-
-    $('#maps-location-link').on('click', function(e){
-      e.preventDefault();
-
     });
 
     $('.room-images-galery-link').on('click', function(e){
