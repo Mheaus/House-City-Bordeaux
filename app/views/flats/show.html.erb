@@ -53,46 +53,52 @@
 
   <div class="" id="rooms-description-content">
     <p class="location-indication">Le logement est situé à 10 minutes à pied des quais et du centre</p>
-    <div id="rooms-container">
+    <div class="row" id="rooms-container">
       <% @flat.rooms.each_with_index do |room, i| %>
-        <div class="room" id="<%= "room#{i}:#{room.name}" %>">
-          <p class="room-description"><%= room.description %></p>
-          <div class="room-images-box row">
-            <div class="col-6 text-center">
-              <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@photos[i][0]}.jpg"), class: "room-image" %>
+        <div class="col-12 col-lg-6" id="<%= "room#{i}:#{room.name}" %>">
+          <div class="room">
+            <p class="room-description"><%= room.description %></p>
+            <div class="room-images-box row">
+              <div class="col-6 text-center">
+                <%= image_tag cl_image_path(room.photos[0].path), class: "room-image" %>
+              </div>
+              <div class="col-6 text-center">
+                <%= image_tag cl_image_path(room.photos[1].path), class: "room-image" %>
+              </div>
             </div>
-            <div class="col-6 text-center">
-              <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@photos[i][1]}.jpg"), class: "room-image" %>
-            </div>
+            <%= link_to "cliquer pour agrandir les photos", "##{room.name}", class: "room-images-galery-link" %>
           </div>
-          <%= link_to "cliquer pour voir plus de photos", "##{room.name}", class: "room-images-galery-link" %>
         </div>
       <% end %>
     </div>
   </div>
 </section>
 
-<section class="show" id="rules">
-  <p class="title">Réglement Intérieur</p>
-  <div class="container">
-    <p class="rule">Non fumeur</p>
-    <p class="rule">Pas d'animaux</p>
-    <p class="rule">Pas de fêtes ni de soirées</p>
-    <p class="rule">L'entrée dans les lieux se fait à partir de 15:00</p>
+<section class="container-fluid show" id="rules-extra">
+  <div class="row">
+    <div class="col-12 col-lg-6" id="rules">
+      <p class="title">Réglement Intérieur</p>
+      <div class="container">
+        <p class="rule">Non fumeur</p>
+        <p class="rule">Pas d'animaux</p>
+        <p class="rule">Pas de fêtes ni de soirées</p>
+        <p class="rule">L'entrée dans les lieux se fait à partir de 15:00</p>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 text-center">
+      <div id="extra">
+        <p>
+          Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>
+          Lit parapluie combiné et chaise haute sur demande.
+        </p>
+      </div>
+      <%= link_to "Voir l'emplacement du quartier sur google maps", "#map", id: "maps-location-link" %>
+      <%= link_to "Réserver", "https://www.airbnb.fr/rooms/6747273", class: "btn-xl"%>
+    </div>
   </div>
 </section>
 
-<section class="show" id="extra">
-  <p>
-    Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>
-    Lit parapluie combiné et chaise haute sur demande.
-  </p>
-</section>
 
-<section class="show" id="links">
-  <%= link_to "Voir l'emplacement du quartier sur google maps", "#map", id: "maps-location-link" %>
-  <%= link_to "Réserver", "https://www.airbnb.fr/rooms/6747273", class: "btn-xl" %>
-</section>
 
 <%= render "shared/photoswipe" %>
 

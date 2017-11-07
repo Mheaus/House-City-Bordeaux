@@ -63,4 +63,6 @@ gem "font-awesome-rails"
 gem "photoswipe-rails"
 
 gem 'cloudinary'
-gem 'carrierwave'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+

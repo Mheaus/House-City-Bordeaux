@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
   belongs_to :flat
-  mount_uploaders :photos, PhotoUploader
+
+  has_attachments :photos, maximum: 8
 end

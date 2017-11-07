@@ -122,6 +122,7 @@
       height: 0;
       opacity: 0;
       margin: 1em 0.25em;
+      text-align: center;
       overflow: hidden;
       transition: opacity 0.5s ease-out;
       &.expand {
@@ -156,12 +157,17 @@
             color: $gray-light;
             border-bottom: 1px solid #D7D7D7;
           }
+          @media (min-width: 500px) {
+            padding: 0.5em;
+            background-color: rgba(242, 242, 242, 0.5);
+            box-shadow: 5px 5px 3px  rgba(242, 242, 242, 0.9) ;
+          }
         }
       }
     }
   }
 
-  &#rules {
+  #rules {
     padding: 0 1em;
     p {
       margin: 0;
@@ -181,20 +187,18 @@
       }
     }
   }
-
-  &#extra {
-    margin: 0.75em 0.5em;
-    padding: 0.25em 0.3em;
-    text-align: center;
-    border: 1px solid #CBCBCB;
-    p {
-      margin: 0;
-      font-size: 0.8em;
-    }
-  }
-
-  &#links {
+  &#rules-extra {
     padding: 0;
+    #extra {
+      margin: 0.75em 0.5em;
+      padding: 0.25em 0.3em;
+      text-align: center;
+      border: 1px solid #CBCBCB;
+      p {
+        margin: 0;
+        font-size: 0.8em;
+      }
+    }
     a {
       display: block;
       &#maps-location-link {
@@ -206,6 +210,7 @@
         letter-spacing: 1px;
       }
       &.btn-xl {
+        display: block;
         margin: 1em 1em 1.5em 1em;
         color: white;
         background-color: $theme-primary-light;
@@ -214,6 +219,9 @@
         font-size: 1.125em;
         letter-spacing: 1.5px;
       }
+    }
+    @media (min-width: 1200px) {
+      padding: 0 1.5em;
     }
   }
 }
