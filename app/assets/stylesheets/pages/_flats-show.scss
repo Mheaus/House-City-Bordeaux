@@ -1,78 +1,198 @@
-.show {
-  @media (min-width: 500px) {
-    font-size: 24px;
+
+#main-content {
+  @media (min-width: 460px) and (max-width: 1100px) {
+    #description-header {
+      .apartment {
+        padding: 0.25em 0 0 1.5em;
+        p {
+          font-size: 1.375em;
+        }
+      }
+    }
   }
-  &.appartment-details-header {
-    @media (min-width: 550px) {
-      font-size: 30px;
+  @media (min-width: 600px) and (max-width: 1200px) {
+    font-size: 21px;
+  }
+  @media (min-width: 1200px) and (max-width: 1450px) {
+    #rules-extra {
+      font-size: 18px;
+    }
+  }
+  @media (min-width: 1200px) {
+    font-size: 20px;
+    float: left;
+    width: 70%;
+    #rooms-description {
+      display: none;
     }
     #carousel {
-      // overflow: hidden;
       .carousel-inner {
-        height: 13em;
-        .carousel-item {
-          position: relative;
-          height: 100%;
-          background-position: middle bottom;
-          background-size: cover;
-
-          h1 {
-            font-size: 1.25em;
+        height: 35vh;
+        .image-box {
+          .image {
+            margin-top: -5%;
+            height: 150% !important;
           }
-          .image-blur {
-            position: absolute;
-            width: 100%;
-            filter: blur(3px);
+        }
+      }
+    }
+    #description-header {
+      .apartment {
+        padding: 0.25em 0 0 2em !important;
+        .title {
+          font-size: 1.2em;
+          letter-spacing: 0.75px;
+          &.surface {
+            padding-left: 3em;
           }
-          .image-box {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            text-align: center;
-            .image {
-              height: 100%;
+        }
+        .price-box {
+          top: 0.3em;
+          width: 13em !important;
+          padding-right: 0.75em !important;
+          p {
+            display: inline-block;
+            font-weight: lighter;
+            margin-top: 0.1em !important;
+            letter-spacing: 1.25px;
+          }
+          .price {
+            font-weight: 300;
+          }
+        }
+      }
+      #description-content-insights {
+        margin-top: 1.25em;
+        .description-content {
+          padding-left: 4em;
+          width: 80%;
+        }
+        .insights {
+          padding: 1em 1em !important;
+          .row {
+            display: flex;
+            justify-content: space-around;
+            svg {
+              width: 1em;
             }
           }
         }
       }
     }
   }
+  @media (min-width: 1700px) {
+    #rules-extra {
+      font-size: 22px;
+    }
+  }
+  #secondNav {
+  border-color: fade-out($gray-darker, .95);
+  background-color: white;
+  position: relative;
+  @include sans-serif-font;
+  @include transition-all;
+  .navbar-brand {
+    font-weight: 700;
+    color: $theme-primary;
+    &.back {
+      margin-left: 0.7em;
+      font-weight: lighter;
+      font-size: 1.375em;
+      color: $theme-primary;
+    }
+      @include sans-serif-font;
+      &:focus,
+      &:hover {
+        color: darken($theme-primary, .1);
+      }
+    }
+    &.show {
+      height: 4.5em;
+    }
+    #disponibility {
+      position: absolute;
+      bottom: 0.2em;
+      right: 0.5em;
+      margin: 0;
+      font-size: 0.9em;
+      color: #9E9E9E;
+      font-weight: lighter;
+    }
+  }
 
+  #carousel {
+    overflow: hidden;
+    .carousel-inner {
+      height: 13em;
+      @media (min-width: 1100px) {
+        height: 35vh;
+      }
+      .carousel-item {
+        position: relative;
+        height: 100%;
+        background-position: middle bottom;
+        background-size: cover;
 
-  &#description-header {
-    margin-top: 1em;
+        h1 {
+          font-size: 1.25em;
+        }
+        .image-blur {
+          position: absolute;
+          width: 100%;
+          filter: blur(3px);
+        }
+        .image-box {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          .image {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+  #description-header {
+    margin-top: 0.5em;
     padding: 0;
     padding-left: 0.25em;
     position: relative;
     p {
       margin: 0;
     }
-    .title {
-      font-size: 1.25em;
+    .apartment {
       font-weight: bold;
-      &.surface {
-        padding-left: 0.5em;
+      padding: 0.25em 0 0 0.75em;
+      p {
+        font-size: 1.1em;
+        &.name {
+
+        }
+        &.surface {
+          padding-left: 1.3em;
+        }
       }
-    }
-    #price-box {
-      position: absolute;
-      background-color: #575757;
-      top: 0;
-      right: 0;
-      width: 7.625em;
-      height: 3.875em;
-      text-align: right;
-      color: #F1F1F1;
-      padding-right: 0.5em;
-      font-weight: lighter;
-      .price {
-        margin-top: -0.1em;
-        font-size: 2.125em;
-      }
-      .unity {
-        margin-top: -0.75em;
-        font-size: 1em;
-        color: #D0D0D0;
+      .price-box {
+        position: absolute;
+        background-color: #575757;
+        top: 0.3em;
+        right: 0;
+        width: 7.625em;
+        height: 3.875em;
+        text-align: right;
+        color: #F1F1F1;
+        padding-right: 0.5em;
+        font-weight: lighter;
+        .price {
+          margin-top: -0.1em;
+          font-size: 2.125em;
+        }
+        .unity {
+          margin-top: -0.75em;
+          font-size: 1em;
+          color: #D0D0D0;
+        }
       }
     }
     #description-content-insights {
@@ -98,7 +218,7 @@
     }
   }
 
-  &#rooms-description {
+  #rooms-description {
     margin-top: 0.5em;
     padding: 0 0.5em;
     #btn-rooms {
@@ -165,31 +285,31 @@
         }
       }
     }
-
   }
 
-  #rules {
-    padding: 0 1em;
-    p {
-      margin: 0;
-    }
-    .title {
-      width: 11em;
-      font-size: 1.1em;
-      font-weight: bold;
-      border-bottom: 1px solid $theme-primary-lighter;
-    }
-    .container {
-      padding: 0.75em 0.5em 0 0.5em;
-      .rule {
+  #rules-extra {
+    padding-top: 0;
+    padding-bottom: 0;
+    #rules {
+      padding: 0 1em;
+      p {
+        margin: 0;
+      }
+      .title {
+        width: 11em;
         font-size: 1.1em;
-        letter-spacing: 0.75px;
-        font-weight: lighter;
+        font-weight: bold;
+        border-bottom: 1px solid $theme-primary-lighter;
+      }
+      .container {
+        padding: 0.75em 0.5em 0 0.5em;
+        .rule {
+          font-size: 1.1em;
+          letter-spacing: 0.75px;
+          font-weight: lighter;
+        }
       }
     }
-  }
-  &#rules-extra {
-    padding: 0;
     #extra {
       margin: 0.75em 0.5em;
       padding: 0.25em 0.3em;
@@ -212,7 +332,7 @@
       }
       &.btn-xl {
         display: block;
-        margin: 1em 1em 1.5em 1em;
+        margin: 1em 1em 1em 1em;
         color: white;
         background-color: $theme-primary-light;
         border-radius: 5px;
@@ -225,25 +345,62 @@
       padding: 0 1.5em;
     }
   }
-  // @media (min-width: 1500px) {
-  //   &#rooms-description {
-  //     position: absolute;
-  //     right: 0;
-  //     top: 0;
-  //     margin: 0;
-  //     padding: 0;
-  //     width: 30vw;
-  //     background-color: #D8D8D8;
-  //     display: block;
-  //     #btn-rooms {
-  //       display: none;
-  //     }
-  //     #rooms-description-content {
-  //       height: auto;
-  //       opacity: 1;
-  //     }
-
-  //   }
-  // }
 }
+
+#panel-right {
+  height: 100%;
+  width: 30%;
+  float: right;
+  text-align: center;
+  overflow: auto;
+  background-color: #D8D8D8;
+  padding: 0.75em 0.5em 1em 0.5em;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+  @media (min-width: 1700px) {
+    padding: 0.25em 1.25em 1em 1.25em;
+  }
+  .panel-title {
+    margin-right: 1em;
+    color: white;
+    font-size: 1.85em;
+    text-align: left;
+    border-bottom: solid 3px white;
+  }
+  .location-indication {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .room {
+    margin-bottom: 1.5em;
+    .room-description {
+      font-size: 0.8em;
+      text-align: center;
+    }
+    .room-images-box {
+      height: 4.75em;
+
+      padding: 0 2em;
+      img {
+        height: 100%;
+        width: 7.5em;
+      }
+    }
+    .room-images-galery-link {
+      font-size: 0.625em;
+      padding: 0.25em 2em;
+      width: 100%;
+      color: $gray-light;
+      border-bottom: 1px solid #D7D7D7;
+    }
+    @media (min-width: 500px) and (max-width: 1500px) {
+      padding: 0.5em;
+      background-color: rgba(242, 242, 242, 0.5);
+      box-shadow: 5px 5px 3px  rgba(242, 242, 242, 0.9) ;
+    }
+  }
+}
+
+
 

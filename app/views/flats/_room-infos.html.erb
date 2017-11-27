@@ -1,0 +1,16 @@
+<% @flat.rooms.each_with_index do |room, i| %>
+  <div class="col-12 col-lg-6" id="<%= "room#{i}:#{room.name}" %>">
+    <div class="room">
+      <p class="room-description"><%= room.description %></p>
+      <div class="room-images-box row">
+        <div class="col-6 text-center">
+          <%= image_tag cl_image_path(room.photos[0].path), class: "room-image" %>
+        </div>
+        <div class="col-6 text-center">
+          <%= image_tag cl_image_path(room.photos[1].path), class: "room-image" %>
+        </div>
+      </div>
+      <%= link_to "cliquer pour agrandir les photos", "##{room.name}", class: "room-images-galery-link" %>
+    </div>
+  </div>
+<% end %>

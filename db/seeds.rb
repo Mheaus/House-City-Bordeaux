@@ -17,10 +17,10 @@ flats = [
     flat: {name: "Maison avec Terrasse", address: "42 rue Binaud", surface: 115, description: "Dans un environnement calme en plein coeur des Chartrons, une maison spacieuse et agréable : composé d'un salon de 45m² et de sa cuisine toute équipée, d'une suite parentale, d'une chambre mansardée, d'une mezzanine et d'une terrasse privative de 30m² équipée d'un salon de jardin."},
     insights: [
       {icon_name: "people.svg", quantity: 8, legend: "personnes" },
-      {icon_name: "room.svg", quantity: 3, legend: "chambres"},
+      {icon_name: "door.svg", quantity: 3, legend: "chambres"},
       {icon_name: "bed.svg", quantity: 4, legend: "lits"},
-      {icon_name: "clim.svg", legend: "climatisation"},
-      {icon_name: "internet.svg", legend: "bon débit internet"}
+      {icon_name: "snowflake.svg", legend: "climatisation"},
+      {icon_name: "wifi.svg", legend: "bon débit internet"}
     ],
     rooms: [
       {name: "outdoor", description: "La maison peut accueillir de 2 à 8 personnes est une dépendance située au fond du jardin de la propriétaire, la terrasse cloturée sépare les 2 maisons."},

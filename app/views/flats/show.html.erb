@@ -1,104 +1,106 @@
-<nav class="navbar navbar-expand-lg navbar-light show" id="secondNav">
-  <div class="container-fluid">
-    <%= link_to "Retour", flats_path, class: "navbar-brand back" %>
-    <p id="disponibility">Actuellement disponible</p>
-  </div>
-</nav>
-
-<header class="appartment-details-header show">
-  <div class="container-fluid p-0">
-    <div id="carousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner" role="listbox">
-        <% 9.times do |t| %>
-          <div class="carousel-item">
-            <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@background_photos[t]}.jpg"), class: "image-blur" %>
-            <div class="image-box">
-              <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@background_photos[t]}.jpg"), class: "image" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+<div id="main-content">
+  <nav class="navbar navbar-expand-lg navbar-light show" id="secondNav">
+    <div class="container-fluid">
+      <%= link_to "Retour", flats_path, class: "navbar-brand back" %>
+      <p id="disponibility">Actuellement disponible</p>
     </div>
-  </div>
-</header>
+  </nav>
 
-<section class="show" id="description-header">
-  <div id="title-price-box">
-    <p class="title name"><%= @flat.name %></p>
-    <p class="title surface">115m²</p>
-    <div id="price-box">
-      <p class="price">110 €</p>
-      <p class="unity">/ par nuit</p>
-    </div>
-  </div>
-  <div id="description-content-insights">
-    <p class="description-content container-fluid"><%= @flat.description %></p>
-    <div class="insights">
-      <div class="row ">
-        <% @flat.insights.each do |insight| %>
-          <div class="insight">
-            <p><%= show_svg(insight.icon_name) %> <%= insight.quantity %> <%= insight.legend %></p>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="show" id="rooms-description">
-  <button type="button" id="btn-rooms">
-    Descriptif complet des pièces
-    <span class="fa fa-caret-down" id="arrow" title="expand rooms-description-content">
-  </button>
-
-  <div class="" id="rooms-description-content">
-    <p class="location-indication">Le logement est situé à 10 minutes à pied des quais et du centre</p>
-    <div class="row" id="rooms-container">
-      <% @flat.rooms.each_with_index do |room, i| %>
-        <div class="col-12 col-lg-6" id="<%= "room#{i}:#{room.name}" %>">
-          <div class="room">
-            <p class="room-description"><%= room.description %></p>
-            <div class="room-images-box row">
-              <div class="col-6 text-center">
-                <%= image_tag cl_image_path(room.photos[0].path), class: "room-image" %>
-              </div>
-              <div class="col-6 text-center">
-                <%= image_tag cl_image_path(room.photos[1].path), class: "room-image" %>
-              </div>
-            </div>
-            <%= link_to "cliquer pour agrandir les photos", "##{room.name}", class: "room-images-galery-link" %>
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <% 9.times do |t| %>
+        <div class="carousel-item">
+          <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@background_photos[t]}.jpg"), class: "image-blur" %>
+          <div class="image-box">
+            <%= image_tag cl_image_path("hcb/42_rue-Binaud/#{@background_photos[t]}.jpg"), class: "image" %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-</section>
 
-<section class="container-fluid show" id="rules-extra">
-  <div class="row">
-    <div class="col-12 col-lg-6" id="rules">
-      <p class="title">Réglement Intérieur</p>
-      <div class="container">
-        <p class="rule">Non fumeur</p>
-        <p class="rule">Pas d'animaux</p>
-        <p class="rule">Pas de fêtes ni de soirées</p>
-        <p class="rule">L'entrée dans les lieux se fait à partir de 15:00</p>
+  <section id="description-header">
+    <div class="apartment">
+      <p class="name title"><%= @flat.name %></p>
+      <p class="surface title">- 115m²</p>
+      <div class="price-box">
+        <p class="price">110 €</p>
+        <p class="unity">/ par nuit</p>
       </div>
     </div>
-    <div class="col-12 col-lg-6 text-center">
-      <div id="extra">
-        <p>
-          Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>
-          Lit parapluie combiné et chaise haute sur demande.
-        </p>
+    <div id="description-content-insights">
+      <p class="description-content container-fluid"><%= @flat.description %></p>
+      <div class="insights">
+        <div class="row">
+          <% @flat.insights.each do |insight| %>
+            <div class="insight">
+              <p><%= show_svg(insight.icon_name) %> <%= insight.quantity %> <%= insight.legend %></p>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <%= link_to "Voir l'emplacement du quartier sur google maps", "https://www.google.fr/maps/@44.8414409,-0.5694787,1283a,35y,39.11t/data=!3m1!1e3", id: "maps-location-link", target: '_blank' %>
-      <%= link_to "Réserver", "https://www.airbnb.fr/rooms/6747273", class: "btn-xl"%>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section id="rooms-description">
+    <button type="button" id="btn-rooms">
+      Descriptif complet des pièces
+      <span class="fa fa-caret-down" id="arrow" title="expand rooms-description-content">
+    </button>
 
+    <div class="" id="rooms-description-content">
+      <p class="location-indication">Le logement est situé à 10 minutes à pied des quais et du centre</p>
+      <div class="row" id="rooms-container">
+        <%= render "room-infos" %>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid" id="rules-extra">
+    <div class="row">
+      <div class="col-12 col-lg-6" id="rules">
+        <p class="title">Réglement Intérieur</p>
+        <div class="container">
+          <p class="rule">Non fumeur</p>
+          <p class="rule">Pas d'animaux</p>
+          <p class="rule">Pas de fêtes ni de soirées</p>
+          <p class="rule">L'entrée dans les lieux se fait à partir de 15:00</p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 text-center">
+        <div id="extra">
+          <p>
+            Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>
+            Lit parapluie combiné et chaise haute sur demande.
+          </p>
+        </div>
+        <%= link_to "Voir l'emplacement du quartier sur google maps", "https://www.google.fr/maps/@44.8414409,-0.5694787,1283a,35y,39.11t/data=!3m1!1e3", id: "maps-location-link", target: '_blank' %>
+        <%= link_to "Réserver", "https://www.airbnb.fr/rooms/6747273", class: "btn-xl"%>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="panel-right">
+  <p class="panel-title">Descriptif complet des pièces</p>
+  <p class="location-indication">Le logement est situé à 10 minutes à pied des quais et du centre</p>
+  <% @flat.rooms.each_with_index do |room, i| %>
+    <div id="<%= "room#{i}:#{room.name}" %>">
+      <div class="room">
+        <p class="room-description"><%= room.description %></p>
+        <div class="room-images-box row">
+          <div class="col-6 text-center">
+            <%= image_tag cl_image_path(room.photos[0].path), class: "room-image" %>
+          </div>
+          <div class="col-6 text-center">
+            <%= image_tag cl_image_path(room.photos[1].path), class: "room-image" %>
+          </div>
+        </div>
+        <%= link_to "cliquer pour agrandir les photos", "##{room.name}", class: "room-images-galery-link" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= render "shared/photoswipe" %>
 
