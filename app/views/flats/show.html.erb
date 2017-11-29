@@ -58,7 +58,7 @@
 
   <section class="container-fluid" id="rules-extra">
     <div class="row">
-      <div class="col-12 col-lg-6" id="rules">
+      <div class="col-12 col-md-6" id="rules">
         <p class="title">Réglement Intérieur</p>
         <div class="container">
           <p class="rule">Non fumeur</p>
@@ -67,7 +67,7 @@
           <p class="rule">L'entrée dans les lieux se fait à partir de 15:00</p>
         </div>
       </div>
-      <div class="col-12 col-lg-6 text-center">
+      <div class="col-12 col-md-6 text-center">
         <div id="extra">
           <p>
             Nous vous fournissons les draps et les serviettes de toilette gratuitement !</br>
@@ -86,7 +86,7 @@
   <p class="location-indication">Le logement est situé à 10 minutes à pied des quais et du centre</p>
   <% @flat.rooms.each_with_index do |room, i| %>
     <div id="<%= "room#{i}:#{room.name}" %>">
-      <div class="room">
+      <div class="room container-fluid">
         <p class="room-description"><%= room.description %></p>
         <div class="room-images-box row">
           <div class="col-6 text-center">
