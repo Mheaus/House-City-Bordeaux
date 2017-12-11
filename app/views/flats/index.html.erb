@@ -1,199 +1,74 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand uppercase js-scroll-trigger" href="#page-top">House City Bordeaux</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#apartments">Appartements</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-        </li>
-      </ul>
+<div class="main-content">
+  <div class="video-background">
+    <div id="video-foreground">
+      <iframe id="background-video" width="100%" height="110%" src="https://www.youtube.com/embed/lQbFWZvbS40?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1&loop=1&playlist=lQbFWZvbS40"
+       frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-</nav>
-
-<header class="masthead" style="background-image: linear-gradient(-225deg, rgba(159, 159, 159,0.6) 0%, rgba(53, 53, 53,0.6) 50%), url(<%= cl_image_path("hcb/42_rue-Binaud/outdoor#{rand(1..9)}.jpg") %>);">
-  <div class="header-content">
-    <div class="header-content-inner">
-      <h1 id="homeHeading">Quartier des Chartrons, Bordeaux</h1>
-      <hr>
-      <p>Le meilleur endroit où loger</p>
-      <%= link_to "Réserver", flat_path(@flats.first), class: "btn btn-primary btn-xl js-scroll-trigger" %>
-    </div>
+  <div class="header-title">
+    <h1 id="homeHeading">Locations aux Chartrons<br>Bordeaux</h1>
+    <p class="subtitle">4 appartements dans le centre de Bordeaux pour votre plus grand confort</p>
   </div>
-  <%= link_to "#services", class: "circle-down-services js-scroll-trigger" do %>
-    <i class="fa fa-arrow-circle-down d-sm-none" aria-hidden="true"></i>
-  <% end %>
-</header>
-
-<%#= render "wgwyn-box-index" %>
-
-<iframe width="100%" alt="map" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=42+rue+Binaud+Bordeaux&key=<%= ENV['GOOGLE_MAPS_API_KEY']%>" allowfullscreen></iframe>
-
-<section id="services">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading">A votre service</h2>
-        <hr class="primary">
-      </div>
+  <section id="insight-list">
+    <div class="insight families">
+      <%= image_tag("icons/ic_group_white_48dp_1x") %>
+      <p>idéal pour les familles, calme et silencieux</p>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-child text-primary sr-icons"></i>
-          <h3>Tranquille</h3>
-          <p class="text-muted">Idéal pour les familles, calme et silencieux + mobilier pour nouveaux nés à la demande</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-taxi text-primary sr-icons"></i>
-          <h3>Accessible</h3>
-          <p class="text-muted">Facile d'accès et près du centre + parking et chauffeur en option</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-laptop text-primary sr-icons"></i>
-          <h3>Connecté</h3>
-          <p class="text-muted">Connection internet de bonne qualité avec télévision et services de réservation en ligne</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-thumbs-up text-primary sr-icons"></i>
-          <h3>Très demandé</h3>
-          <p class="text-muted">Très recommandé sur Airbnb</p>
-          <p class="text-muted"><%= link_to "Voir les commentaires sur Airbnb", "https://www.airbnb.com/rooms/6747273?_branch_match_id=444476649525065446&adults=6&guests=6&locale=en&ref_device_id=771c0003c13b7460&s=26&user_id=35326501#reviews", target: "_blank"%></p>
-        </div>
-      </div>
+    <div class="insight access">
+      <%= image_tag("icons/ic_directions_walk_white_48dp_1x") %>
+      <p>facile d’accès et près du centre</p>
     </div>
-  </div>
-</section>
+    <div class="insight parking">
+      <%= image_tag("icons/ic_time_to_leave_white_48dp_1x") %>
+      <p>parking et chauffeur en option</p>
+    </div>
+    <div class="insight connectivity">
+      <%= image_tag("icons/ic_wifi_white_48dp_1x") %>
+      <p>connection internet de bonne qualité et tv</p>
+    </div>
+    <div class="insight reviews">
+      <%= image_tag("icons/ic_thumb_up_white_48dp_1x", id: "thumb_up" )  %>
+      <p>recommandé par de nombreux avis</p>
+      
+      <%= image_tag("icons/open", id: "open") %>
+    </div>
+  </section>
+</div>
 
-<section id="apartments-container" style="background-image: url(<%= cl_image_path("6002bc6b_original_m7lit4") %>);">
-  <% @flats.each do |flat| %>
-    <%= link_to flat_path(flat), class: "apartment-link" do %>
+<div id="apartments-panel">
+  <section id="apartments-container" style="background-image: url(<%= cl_image_path("6002bc6b_original_m7lit4") %>);">
+    <% @flats.each do |flat| %>
       <div class="apartment" >
         <p class="title"><%= flat.name %></p>
         <p><%= flat.description %></p>
         <p class="underline">cliquer ici pour voir plus de détails</p>
-        <button class="btn btn-primary btn-xl" href="<%= flat_path(flat) %>">Détails</button>
       </div>
     <% end %>
-  <% end %>
-</section>
-
-<%#= render "discover-index" %>
-
-<section id="contact">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto text-center">
-        <h2 class="section-heading">Contact</h2>
-        <hr class="primary">
-        <p>Vous souhaitez poser une question ou réserver ? Il suffit d'appeler ou d'envoyer un mail.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-4 ml-auto text-center">
-        <i class="fa fa-phone fa-3x sr-contact"></i>
-        <p>(+33) 6 63 40 79 05</p>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 mr-auto text-center">
-        <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-        <p>
-          <a href="mailto:your-email@your-domain.com">hangar.loc@gmail.com</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <%= content_for :after_js do %>
   <script>
-    (function($) {
-    "use strict"; // Start of use strict
-
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
-          $('html, body').animate({
-            scrollTop: (target.offset().top - 48)
-          }, 1000, "easeInOutQuart");
-          return false;
-        }
-      }
+    $(document).ready(function(){
+      sizeTheVideo();
+      $(window).resize(function(){
+        sizeTheVideo();
+      });
     });
 
-    // Closes responsive menu when a scroll trigger link is clicked
-    $('.js-scroll-trigger').click(function() {
-      $('.navbar-collapse').collapse('hide');
-    });
+    function sizeTheVideo(){
+      // - 1.78 is the aspect ratio of the video
+    // - This will work if your video is 1920 x 1080
+    // - To find this value divide the video's native width by the height eg 1920/1080 = 1.78
+      var aspectRatio = 1.78;
 
-    // Activate scrollspy to add active class to navbar items on scroll
-    $('body').scrollspy({
-      target: '#mainNav',
-      offset: 48
-    });
+        var video = $('#video-foreground iframe');
+        var videoHeight = video.outerHeight();
+        var newWidth = videoHeight*aspectRatio;
+    		var halfNewWidth = newWidth/2;
 
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(function() {
-      if ($("#mainNav").offset().top > 100) {
-        $("#mainNav").addClass("navbar-shrink");
-      } else {
-        $("#mainNav").removeClass("navbar-shrink");
-      }
-    });
-
-    // Scroll reveal calls
-    window.sr = ScrollReveal();
-    sr.reveal('.sr-icons', {
-      duration: 600,
-      scale: 0.3,
-      distance: '0px'
-    }, 200);
-    sr.reveal('.sr-button', {
-      duration: 1000,
-      delay: 200
-    });
-    sr.reveal('.sr-contact', {
-      duration: 600,
-      scale: 0.3,
-      distance: '0px'
-    }, 300);
-
-    // Magnific popup calls
-    $('.popup-gallery').magnificPopup({
-      delegate: 'a',
-      type: 'image',
-      tLoading: 'Loading image #%curr%...',
-      mainClass: 'mfp-img-mobile',
-      gallery: {
-        enabled: true,
-        navigateByImgClick: true,
-        preload: [0, 1]
-      },
-      image: {
-        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-      }
-    });
-
-  })(jQuery); // End of use strict
+      //Define the new width and centrally align the iframe
+      video.css({"width":newWidth+"px","left":"50%","margin-left":"-"+halfNewWidth+"px"});
+    }
   </script>
 <% end %>
