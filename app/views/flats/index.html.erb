@@ -27,24 +27,51 @@
       <p>connection internet de bonne qualité et tv</p>
     </div>
     <div class="insight reviews">
-      <%= image_tag("icons/ic_thumb_up_white_48dp_1x", id: "thumb_up" )  %>
+      <%= image_tag("icons/ic_thumb_up_white_48dp_1x", id: "thumb_up" ) %>
       <p>recommandé par de nombreux avis</p>
-      
-      <%= image_tag("icons/open", id: "open") %>
+      <%= link_to "https://www.airbnb.fr/rooms/6747273#reviews", target: "_blank" do %>
+        <%= image_tag("icons/open", id: "open")%>
+      <% end %>
     </div>
   </section>
-</div>
+  <%= link_to "https://goo.gl/maps/REQQSxy2d942", id: "staticmap-box" do %>
+    <div class="display-hover">click here to see the map</div>
+    <%= image_tag("staticmap", alt: "google-map-static", id: "map") %>
+  <% end %>
 
-<div id="apartments-panel">
-  <section id="apartments-container" style="background-image: url(<%= cl_image_path("6002bc6b_original_m7lit4") %>);">
-    <% @flats.each do |flat| %>
-      <div class="apartment" >
-        <p class="title"><%= flat.name %></p>
-        <p><%= flat.description %></p>
+  <div id="apartments-panel">
+    <a id="toggle-panel-right" class="btn btn-xl">
+      <%= image_tag "icons/ic_clear_white_48dp_2x" %>
+      <span>Voir les locations</span>
+    </a>
+
+      <% @flats.each do |flat| %>
+        <%= link_to flat_path(flat), class: "apartment", style: "background: linear-gradient(90deg, rgba(119, 119, 119, 0) 40%, rgba(230, 147, 100, 0.34));" do %>
+          <p class="title"><%= "#{flat.name} - #{flat.surface}m²" %></p>
+          <p><%= "#{flat.description.first(140)}(...)" %></p>
+          <p class="underline">cliquer ici pour voir plus de détails</p>
+          <%= cl_image_tag("6002bc6b_original_m7lit4") %>
+        <% end %>
+      <% end %>
+      <%= link_to "#", class: "apartment", style: "background: linear-gradient(90deg, rgba(119, 119, 119, 0) 40%, rgba(33, 127, 223, 0.5));" do %>
+        <p class="title">Appartement 2</p>
+        <p>Détails bientôt disponibles</p>
         <p class="underline">cliquer ici pour voir plus de détails</p>
-      </div>
-    <% end %>
-  </section>
+        <%= cl_image_tag(Flat.all[0].rooms[1].photos.first.public_id) %>
+      <% end %>
+      <%= link_to "#", class: "apartment", style: "background: linear-gradient(90deg, rgba(119, 119, 119, 0) 40%, rgba(69, 232, 192, .43));" do %>
+        <p class="title">Appartement 3</p>
+        <p>Détails bientôt disponibles</p>
+        <p class="underline">cliquer ici pour voir plus de détails</p>
+        <%= cl_image_tag(Flat.all[0].rooms[2].photos[2].public_id) %>
+      <% end %>
+      <%= link_to "#", class: "apartment", style: "background: linear-gradient(90deg, rgba(119, 119, 119, 0) 40%, rgba(147, 105, 242, 0.5));" do %>
+        <p class="title">Appartement 4</p>
+        <p>Détails bientôt disponibles</p>
+        <p class="underline">cliquer ici pour voir plus de détails</p>
+        <%= cl_image_tag(Flat.all[0].rooms[1].photos[2].public_id) %>
+      <% end %>
+  </div>
 </div>
 
 <%= content_for :after_js do %>
@@ -53,6 +80,11 @@
       sizeTheVideo();
       $(window).resize(function(){
         sizeTheVideo();
+      });
+      $('#toggle-panel-right').on('click', function() {
+        $('#toggle-panel-right').toggleClass('reduced');
+        $('#apartments-panel').toggleClass('expand');
+        $('#staticmap-box').toggleClass('d-none');
       });
     });
 

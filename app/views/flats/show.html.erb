@@ -1,7 +1,7 @@
 <div id="main-content">
   <nav class="navbar navbar-expand-lg navbar-light show" id="secondNav">
     <div class="container-fluid">
-      <%= link_to "Retour", flats_path, class: "navbar-brand back" %>
+      <%= link_to "Retour", flats_path, class: "navbar-brand back", data: { no_turbolink: true } %>
       <p id="disponibility">Actuellement disponible</p>
     </div>
   </nav>
@@ -34,7 +34,7 @@
         <div class="row">
           <% @flat.insights.each do |insight| %>
             <div class="insight">
-              <p><%= show_svg(insight.icon_name) %> <%= insight.quantity %> <%= insight.legend %></p>
+              <p><%= svg(insight.icon_name) %> <%= insight.quantity %> <%= insight.legend %></p>
             </div>
           <% end %>
         </div>

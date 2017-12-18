@@ -1,9 +1,13 @@
 .main-content {
-  padding: 7em 5em 4em 4em;
+  padding: 3.5em 5em 4em 4em;
   height: 100%;
+  width: 100%;
   color: white;
   background: rgba(141, 141, 141, 0.6);
   * { box-sizing: border-box; }
+  @media (max-width: 1200px) {
+    font-size: 15px;
+  }
   .video-background {
     background: #000;
     position: fixed;
@@ -63,68 +67,134 @@
           margin: 0.25em;
         }
         &#open {
+          opacity: .8;
           width: 1.5em;
-          margin: 0.75em;
+          margin: 0 0.75em;
+          &:hover {
+            opacity: 1;
+          }
         }
+      }
+    }
+  }
+  #staticmap-box {
+    position: fixed;
+    bottom: 5em;
+    right: 5em;
+    padding: .1em;
+    background-color: rgba(141, 141, 141, 0.6);
+    height: 11em;
+    width: 11em;
+    .display-hover {
+      color: white;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      z-index: 3;
+      opacity: 0;
+      text-align: center;
+      background-color: rgba(141, 141, 141, 0.6);
+      font-size: 1.5em;
+      transition: opacity .5s;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    #map {
+      z-index: 1;
+      background-color: rgba(141, 141, 141, 0.6);
+      height: 100%;
+      width: 100%;
+    }
+  }
+  #toggle-panel-right {
+    position: fixed;
+    top: 3.6em;
+    right: 4em;
+    color: white;
+    background-color: $theme-primary;
+    border-radius: 5px;
+    text-align: center;
+    opacity: .9;
+    transition: right .4s;
+    img {
+      display: none;
+      width: 2.75em;
+    }
+    span {
+      font-size: 1.125em;
+      letter-spacing: 1.5px;
+    }
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    &:active {
+      top: 3.4em;
+    }
+    &.reduced {
+      padding: .25em;
+      right: 34vw;
+      border-radius: 50%;
+      span {
+        display: none;
+      }
+      img {
+        display: block;
       }
     }
   }
 }
 
 #apartments-panel {
-  display: none;
-  section#apartments-container {
-    padding: 0;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 31vw;
+  transition: left .4s;
+  &.expand {
+    left: 69%;
+  }
+  // @media () {
+  //
+  // }
+  .apartment {
+    display: block;
+    position: relative;
+    height: 25vh;
     background-position: center;
     background-size: cover;
-    .apartment-link {
-      text-decoration: none;
-      .apartment {
-        position: relative;
-        min-height: 350px;
-        padding: 50px;
-        text-align: right;
-        background-color: rgba(119, 119, 119, 0);
-        transition: background-color 0.3s;
-        p {
-          color: white;
-          opacity: 0;
-          font-size: 1em;
-          padding-left: 30%;
-          transition: opacity 0.3s;
-          letter-spacing: 1px;
-          &.title {
-            font-weight: normal;
-            font-size: 1.3em;
-          }
-          &.underline {
-            text-decoration: underline;
-            font-weight: bold;
-          }
-        }
-        &:hover {
-          background-color: rgba(119, 119, 119, 0.7);
-          p {
-            opacity: 1;
-          }
-        }
-        @media (max-width: 750px) {
-          padding: 20px;
-          background-color: rgba(119, 119, 119, 0.7);
-          p {
-            opacity: 1;
-            padding-left: 0;
-            font-weight: lighter;
-          }
-        }
-        .btn-primary.btn-xl {
-          @media (max-width: 750px) {
-            display: none;
-          }
-          position: absolute;
-          bottom: 3.75em;
-          left: 3.75em;
-        }
+    text-decoration: none;
+    padding: 2em 2.5em;
+    overflow: hidden;
+    img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: .8;
+      transition: opacity 0.3s;
+    }
+    p {
+      z-index: 3;
+      color: white;
+      letter-spacing: 1px;
+      &.title {
+        margin-left: -.5em;
+        font-weight: 300;
+        font-size: 1.5em;
+      }
+      &.underline {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
+    &:hover {
+      img {
+        opacity: 1;
       }
     }
   }

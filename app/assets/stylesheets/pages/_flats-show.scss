@@ -365,7 +365,7 @@
   float: right;
   text-align: center;
   overflow: auto;
-  background-color: #D8D8D8;
+  background-color: #8e8e8e;
   padding: 0.75em 0.5em 1em 0.5em;
   @media (max-width: 1100px) {
     display: none;
@@ -374,13 +374,14 @@
     padding: 0.25em 1.25em 1em 1.25em;
   }
   .panel-title {
-    margin-right: 1em;
+    margin: 0 1em 1em 0;
     color: white;
     font-size: 1.75em;
     text-align: left;
     border-bottom: solid 3px white;
   }
   .location-indication {
+    margin-bottom: .75em;
     font-size: 1.1em;
     font-weight: bold;
   }
@@ -408,6 +409,3 @@
     }
   }
 }
-
-
-
