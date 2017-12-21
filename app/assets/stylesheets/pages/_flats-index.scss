@@ -1,12 +1,16 @@
 .main-content {
+  font-size: 14px;
   padding: 3.5em 5em 4em 4em;
   height: 100%;
   width: 100%;
   color: white;
   background: rgba(141, 141, 141, 0.6);
   * { box-sizing: border-box; }
-  @media (max-width: 1200px) {
+  @media (min-width: 1000px) {
     font-size: 15px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 16px;
   }
   .video-background {
     background: #000;
@@ -108,6 +112,28 @@
       width: 100%;
     }
   }
+}
+
+#apartments-panel {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 40vw;
+  transition: left .4s;
+  z-index: 0;
+  &.expand {
+    left: 60%;
+  }
+  @media (min-width: 1200px) {
+    width: 31vw;
+    &.expand {
+      left: 69%;
+    }
+    #toggle-panel-right.reduced {
+      right: 34vw;
+    }
+  }
   #toggle-panel-right {
     position: fixed;
     top: 3.6em;
@@ -116,8 +142,12 @@
     background-color: $theme-primary;
     border-radius: 5px;
     text-align: center;
-    opacity: .9;
+    opacity: 1;
     transition: right .4s;
+    @media (max-width: 1000px) {
+      font-size: 15px;
+      top: 4.6em;
+    }
     img {
       display: none;
       width: 2.75em;
@@ -127,7 +157,7 @@
       letter-spacing: 1.5px;
     }
     &:hover {
-      opacity: 1;
+      opacity: .9;
       cursor: pointer;
     }
     &:active {
@@ -135,7 +165,7 @@
     }
     &.reduced {
       padding: .25em;
-      right: 34vw;
+      right: 43vw;
       border-radius: 50%;
       span {
         display: none;
@@ -145,21 +175,6 @@
       }
     }
   }
-}
-
-#apartments-panel {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  height: 100%;
-  width: 31vw;
-  transition: left .4s;
-  &.expand {
-    left: 69%;
-  }
-  // @media () {
-  //
-  // }
   .apartment {
     display: block;
     position: relative;
@@ -169,14 +184,23 @@
     text-decoration: none;
     padding: 2em 2.5em;
     overflow: hidden;
+    .filter {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background: rgb(141, 141, 141);
+      opacity: .5;
+      z-index: -1;
+      transition: opacity 0.3s;
+    }
     img {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: -5%;
       left: 0;
-      z-index: -1;
-      opacity: .8;
-      transition: opacity 0.3s;
+      z-index: -2;
     }
     p {
       z-index: 3;
@@ -187,14 +211,20 @@
         font-weight: 300;
         font-size: 1.5em;
       }
+      &.description {
+        display: inline;
+      }
+      &.end-description {
+        display: inline;
+      }
       &.underline {
         text-decoration: underline;
         font-weight: bold;
       }
     }
     &:hover {
-      img {
-        opacity: 1;
+      .filter {
+        opacity: .7;
       }
     }
   }
